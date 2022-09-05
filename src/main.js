@@ -4,7 +4,7 @@ const express = require('express');
 // const fs = require('fs');
 
 const app = express();
-const PORT = 4040;
+const PORT = 4000;
 
 const userRouter = express.Router();
 const postsRouter = express.Router();
@@ -14,24 +14,30 @@ const USER = [
   {
     id: 'JUDY',
     name: '세영',
+    email: 'judy@code.com',
   },
   {
     id: 'DABAL',
     name: '다발이',
+    email: 'dabal@code.com',
   },
 ];
 
 app.use('/users', userRouter);
 app.use('/posts', postsRouter);
-app.set('view engin', 'ejs');
+app.set('view engine', 'ejs');
 app.set('views', 'views');
+app.use(express.static('views'));
+app.use(express.static('js'));
 
 userRouter.get('/', (req, res) => {
-  res.write('<h1>Hello, Dynamic...</h1>');
-  for (let i = 0; i < USER.length; i++) {
-    res.write(`<h2>USER ID는 ${USER[i].id}</h2>`);
-    res.write(`<h2>USER NAMEdms ${USER[i].name}</h2>`);
-  }
+  const userLen = USER.length;
+  res.render('index', { USER, userCounts: userLen });
+  // res.write('<h1>Hello, Dynamic...</h1>');
+  // for (let i = 0; i < USER.length; i++) {
+  //   res.write(`<h2>USER ID는 ${USER[i].id}</h2>`);
+  //   res.write(`<h2>USER NAMEdms ${USER[i].name}</h2>`);
+  // }
   // res.send(USER);
 });
 
@@ -48,10 +54,11 @@ userRouter.get('/:id', (req, res) => {
 // 새로운 회원 추가API
 userRouter.post('/', (req, res) => {
   // res.send(`이름이 ${req.params.name}인 유저가 등록되었습니다.`);
-  if (req.query.id && req.query.name) {
+  if (req.query.id && req.query.name && req.query.email) {
     const newUser = {
       id: req.query.id,
       name: req.query.name,
+      email: req.query.email,
     };
     USER.push(newUser);
     res.send('회원 등록 완료!');
@@ -73,7 +80,7 @@ userRouter.delete('/:id', (req, res) => {
 
 // 회원 수정 API
 userRouter.put('/:id', (req, res) => {
-  if (req.query.id && req.query.name) {
+  if (req.query.id && req.query.name && req.query.email) {
     const userData = USER.find((user) => user.id === req.params.id);
 
     if (userData) {
@@ -81,6 +88,7 @@ userRouter.put('/:id', (req, res) => {
       const modifyUser = {
         id: req.query.id,
         name: req.query.name,
+        email: req.query.email,
       };
       USER[arrIndex] = modifyUser;
       res.send('회원 수정 완료');

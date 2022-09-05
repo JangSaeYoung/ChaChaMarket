@@ -9,24 +9,97 @@ const PORT = 4040;
 const userRouter = express.Router();
 const postsRouter = express.Router();
 
+// user 데이터
+const USER = [
+  {
+    id: 'JUDY',
+    name: '세영',
+  },
+  {
+    id: 'DABAL',
+    name: '다발이',
+  },
+];
+
 app.use('/users', userRouter);
 app.use('/posts', postsRouter);
+app.set('view engin', 'ejs');
+app.set('views', 'views');
 
 userRouter.get('/', (req, res) => {
-  res.send('회원 목록');
+  res.write('<h1>Hello, Dynamic...</h1>');
+  for (let i = 0; i < USER.length; i++) {
+    res.write(`<h2>USER ID는 ${USER[i].id}</h2>`);
+    res.write(`<h2>USER NAMEdms ${USER[i].name}</h2>`);
+  }
+  // res.send(USER);
 });
 
-userRouter.post('/:name', (req, res) => {
-  res.send(`이름이 ${req.params.name}인 유저가 등록되었습니다.`);
+userRouter.get('/:id', (req, res) => {
+  const userData = USER.find((user) => user.id === req.params.id);
+
+  if (userData) {
+    res.send(userData);
+  } else {
+    res.end('ID not found');
+  }
 });
 
-postsRouter.get('/', (req, res) => {
-  res.send('블로그 글 목록');
+// 새로운 회원 추가API
+userRouter.post('/', (req, res) => {
+  // res.send(`이름이 ${req.params.name}인 유저가 등록되었습니다.`);
+  if (req.query.id && req.query.name) {
+    const newUser = {
+      id: req.query.id,
+      name: req.query.name,
+    };
+    USER.push(newUser);
+    res.send('회원 등록 완료!');
+  } else {
+    res.send('잘못된 쿼리 입니다.');
+  }
 });
+
+// 회원 삭제 API
+userRouter.delete('/:id', (req, res) => {
+  const arrIndex = USER.findIndex((user) => user.id === req.params.id);
+  if (arrIndex !== -1) {
+    USER.splice(arrIndex, 1);
+    res.send('회원정보가 삭제 되었습니다.');
+  } else {
+    res.end('해당 ID를 가진 회원이 없습니다..');
+  }
+});
+
+// 회원 수정 API
+userRouter.put('/:id', (req, res) => {
+  if (req.query.id && req.query.name) {
+    const userData = USER.find((user) => user.id === req.params.id);
+
+    if (userData) {
+      const arrIndex = USER.findIndex((user) => user.id === req.params.id);
+      const modifyUser = {
+        id: req.query.id,
+        name: req.query.name,
+      };
+      USER[arrIndex] = modifyUser;
+      res.send('회원 수정 완료');
+    } else {
+      res.end('해당 ID를 가진 회원이 없습니다. ');
+    }
+  } else {
+    res.end('부적절한 쿼리 입니다.');
+  }
+});
+
+// postsRouter.get('/', (req, res) => {
+//   res.send('블로그 글 목록');
+// });
 
 postsRouter.post('/:title', (req, res) => {
   res.send(`제목이 ${req.params.title}인 글이 등록되었습니다.`);
 });
+
 // app.get('/id/:id/name/:name/gender/:gender', (req, res) => {
 //   console.log(req.params);
 //   res.send(req.params);

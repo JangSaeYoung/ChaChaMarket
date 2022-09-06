@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>차차마켓</title>
+  <!-- SWIPER -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/8f941869ba.js" crossorigin="anonymous"></script>
+</head>
+<link rel="stylesheet" href="./css/home.css">
+<script src="./javascript/test.js"></script>
+
+<body>
+  <header>
+    <h1>
+      <a href="http://localhost:4000/home">
+        <img class="logo" src="./images/logo.png" alt="차차마켓 로고">
+        차차마켓
+      </a>
+    </h1>
+    <ul id="gnb">
+      <li><a href="">중고거래</a></li>
+      <li><a href="http://localhost:4000/users">제작상품</a></li>
+      <li><a href="http://localhost:4000/posts">활동지</a></li>
+    </ul>
+    <div class="search">
+      <input class="search_input" type="text" placeholder="자료를 검색해보세요" />
+    </div>
+    <ul class="user">
+      <li><a href="#">회원가입</a></li>
+      <li><a href="#">로그인</a></li>
+    </ul>
+    <div id="snb">
+      <a href="#" class="search_icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" class="btn_menu"><i class="fa-solid fa-bars"></i></a>
+      <ul class="sub_menu hide">
+        <li><a href="#">중고거래</a></li>
+        <li><a href="http://localhost:4000/users">제작상품</a></li>
+        <li><a href="#">활동지</a></li>
+        <li class="sns_icon">
+          <a href=""><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/jangvaScript"><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-facebook-square"></i></a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <figure>
+    <video src="./video/production ID_5069018.mp4" autoplay muted loop></video>
+    <article class="text">
+      <p>
+        아이들을 위한 <br />
+        자료를 공유하다.
+      </p>
+      <span>
+        원과 교실에서 필요한 자료, 우리 함께 나눠요
+        <i class="fa-solid fa-face-smile-wink"></i>
+      </span>
+    </article>
+  </figure>
+  <section class="service">
+    <div class="inner">
+      <p>놀이중심에는 <br />다양한 자료가 필요합니다.</p>
+      <div class="content">
+        <div class="content_1">
+          <span>다양한<br />놀잇감 공유</span>
+          <p>우주, 해양, 곤충 등 <br />아이들의 새로운 관심에 대한 자료를 <br />얻을 수 있습니다.</p>
+        </div>
+        <div class="content_2">
+          <span>새로운 <br />그림체의 활동지</span>
+          <p>다양성이 풍부한 그림체를 <br />편견 없이 접할 수 있습니다.</p>
+        </div>
+        <div class="content_3">
+          <span>안전한 <br />아나바나</span>
+          <p>육아종합지원센터에서 <br />소독 및 안전관리 후 놀잇감이 공유됩니다.</p>
+        </div>
+        <div class="content_4">
+          <span>작가와 함께하는 <br />새로운 자료</span>
+          <p>우리 교실만의 특별한 주제를<br />작가에게 의뢰하여 제작할 수 있습니다.</p>
+          <p id="notice">* 본인 인증 후 작가 등록이 가능합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sample" id="sec1">
+    <div class="inner">
+      <p class="title">
+        아나바나 놀잇감 중고 거래
+      </p>
+      <a href="#" class="sample_btn">중고거래 자세히 보기</a>
+      <div class="sample_container">
+        <% if(toyCounts > 0) {%> <% for(let i= 0; i < toyCounts; i++){ %>
+        <div class="item">
+          <div class="item_img item1" style="background-image: url(<%=TOYS[i].image%>)"></div>
+          <div class=" item_status"><%=TOYS[i].status%></div>
+          <div class="item_text">
+            <h4><%=TOYS[i].title%></h4>
+            <p><i class="fa-solid fa-location-dot"></i><%=TOYS[i].region%></p>
+            <p><i class="fa-solid fa-calendar-days"></i><%=TOYS[i].period%></p>
+          </div>
+          <div class="badge badge_style"><%=TOYS[i].badge%></div>
+          <div class="badge badge_age"><%=TOYS[i].age%></div>
+        </div>
+        <%}%>
+        <%}%>
+      </div>
+  </section>
+  <section class="product" id="sec2">
+    <div class="inner">
+      <p>직접 의뢰하거나, <br />직접 제작할 수 있습니다.</p>
+      <a href="http://localhost:4000/users" class="product_btn">제작상품 알아보기</a>
+      <img src="./images/falsePeople.png" alt="허수아비 그림" class="people">
+      <img src="./images/eventDay.png" alt="개천절 그림" class="event">
+      <img src="./images/flog.png" alt="개구리 그림" class="flog">
+      <a href="#" class="plus_btn">더보기 +</a>
+    </div>
+  </section>
+  <section class="papper" id="sec3">
+    <div class="inner">
+      <p>주제마다 골라쓰는, 활동지</p>
+      <a href="#" class="papper_btn">활동지 구경하기</a>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./images/paper1.jpg" alt="활동지1" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/paper2.jpg" alt="활동지2" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/paper3.jpg" alt="활동지3" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/paper4.jpg" alt="활동지4" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/paper5.png" alt="활동지5" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+  </section>
+  <div class="modal_bg"></div>
+</body>
+
+</html>

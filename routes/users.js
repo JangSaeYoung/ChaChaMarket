@@ -10,14 +10,35 @@ module.exports = router;
 const USER = [
   {
     id: 'JUDY',
-    name: '세영',
+    name: '얼굴 그리기',
     email: 'judy@code.com',
     image:
       'https://i.pinimg.com/originals/26/a8/5b/26a85b9fa244686e694f1fd2efeb538a.png',
   },
   {
     id: 'DABAL',
-    name: '다발이',
+    name: '도마뱀 색칠하기',
+    email: 'dabal@code.com',
+    image:
+      'https://i.pinimg.com/originals/26/a8/5b/26a85b9fa244686e694f1fd2efeb538a.png',
+  },
+  {
+    id: '김쌤',
+    name: '전통옷색칠하기',
+    email: 'dabal@code.com',
+    image:
+      'https://i.pinimg.com/originals/26/a8/5b/26a85b9fa244686e694f1fd2efeb538a.png',
+  },
+  {
+    id: '파워쌤',
+    name: '운동종류',
+    email: 'dabal@code.com',
+    image:
+      'https://i.pinimg.com/originals/26/a8/5b/26a85b9fa244686e694f1fd2efeb538a.png',
+  },
+  {
+    id: '알럽어린이',
+    name: '개미 관찰',
     email: 'dabal@code.com',
     image:
       'https://i.pinimg.com/originals/26/a8/5b/26a85b9fa244686e694f1fd2efeb538a.png',

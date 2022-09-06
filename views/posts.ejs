@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<link rel="stylesheet" href="./css/post.css">
+<script src="./javascript/test.js"></script>
+
+<body>
+  <header>
+    <h1>
+      <a href="http://localhost:4000/home">
+        <img class="logo" src="./images/logo.png" alt="차차마켓 로고">
+        차차마켓
+      </a>
+    </h1>
+    <ul id="gnb">
+      <li><a href="">중고거래</a></li>
+      <li><a href="http://localhost:4000/users">제작상품</a></li>
+      <li><a href="http://localhost:4000/posts">활동지</a></li>
+    </ul>
+    <div class="search">
+      <input class="search_input" type="text" placeholder="자료를 검색해보세요" />
+    </div>
+    <ul class="user">
+      <li><a href="#">회원가입</a></li>
+      <li><a href="#">로그인</a></li>
+    </ul>
+    <div id="snb">
+      <a href="#" class="search_icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" class="btn_menu"><i class="fa-solid fa-bars"></i></a>
+      <ul class="sub_menu hide">
+        <li><a href="#">중고거래</a></li>
+        <li><a href="http://localhost:4000/users">제작상품</a></li>
+        <li><a href="#">활동지</a></li>
+        <li class="sns_icon">
+          <a href=""><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/jangvaScript"><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-facebook-square"></i></a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <section>
+    <div class="inner">
+      <div class="pageTitle">
+        <p>항상 같은 그림, 같은 느낌?<br />아이들에게 다양함을 보여주세요!</p>
+        <br />
+        <h3>등록 활동지 수: <%= postsCounts%></h3>
+      </div>
+      <h1>활동지 목록</h1>
+      <div class="lists">
+        <ul>
+          <% if(postsCounts > 0) {%> <% for(let i= 0; i < postsCounts; i++){ %>
+          <li>
+            <p class="listTitle"><%= POSTS[i].title%> </p>
+            <p class="listContent"><%= POSTS[i].content%></p>
+            <p>다운로드📁</p>
+            <p>좋아요👍</p>
+          </li>
+          <%}%> <%} else{ %>
+          <li>회원 정보가 없습니다.</li>
+          <%}%>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </body>
+</html>

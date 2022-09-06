@@ -1,0 +1,685 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+/* font-family: 'Poor Story', cursive; */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* HEADER */
+header {
+  /* position: relative; */
+  position: fixed;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 3vh 3vw;
+  align-items: center;
+  z-index: 2;
+  background-color: white;
+}
+
+header .btn_menu {
+  display: none;
+}
+
+/* LOGO */
+
+header h1 a {
+  position: relative;
+  font: bold 30px/1 'Poor Story';
+  color: green;
+}
+
+header h1 a .logo {
+  width: 30px;
+}
+
+/* GNB */
+header #gnb {
+  position: absolute;
+  display: flex;
+  left: 180px;
+}
+
+header #snb {
+  display: none;
+}
+
+header #gnb li {
+  margin: 0px 15px;
+}
+
+header #gnb a {
+  font: 16px/1 'Poor Story';
+  color: black;
+  letter-spacing: 1px;
+}
+
+header #id .sub_menu {
+  opacity: 0;
+}
+
+/* INPUT_SEARCH */
+
+.search {
+  position: absolute;
+  right: 240px;
+}
+
+.search .search_input {
+  width: 200px;
+  height: 40px;
+  border: none;
+  background-color: #f2f3f6;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 16px;
+  font-family: 'Poor Story';
+  display: block;
+}
+
+/* USER */
+.user {
+  display: flex;
+}
+
+.user li {
+  margin: 0 5px;
+}
+
+.user li a {
+  padding: 10px 20px;
+  border-radius: 7px;
+  box-sizing: border-box;
+  color: black;
+  font: 16px/1 'Poor Story';
+}
+
+.user li:nth-of-type(1) a {
+  border: 1px solid green;
+}
+
+.user li:nth-of-type(2) a {
+  background-color: green;
+  color: white;
+}
+
+/* SNS */
+.sns {
+  display: flex;
+}
+
+.sns li {
+  margin: 0 10px;
+}
+
+.sns li a {
+  color: black;
+  font-size: 16px;
+}
+
+#snb .search_icon {
+  position: absolute;
+  top: 0;
+  display: none;
+  font-size: 18px;
+  color: black;
+}
+
+/* Video */
+
+figure {
+  width: 100%;
+  height: 80vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+figure video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+figure .text {
+  position: absolute;
+  left: 6vw;
+  top: 55%;
+  transform: translate(0, -50%);
+}
+
+figure .text p {
+  font: normal 5vw/1 'Poor Story';
+  color: black;
+  line-height: 1.3;
+}
+
+figure .text span {
+  font: normal 1.5vw/1 'Poor Story';
+  line-height: 2;
+}
+
+figure .text span i {
+  color: green;
+}
+
+/* MODAL BACKGROUN */
+.modal_bg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(32, 30, 30, 0.646);
+  z-index: 1;
+  opacity: 0;
+}
+
+.modal_bg.hide {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(32, 30, 30, 0.646);
+  z-index: 1;
+  opacity: 1;
+}
+
+.service {
+  position: absolute;
+  top: 80vh;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+}
+
+section .inner {
+  padding: 3vh 3vw;
+}
+
+.service .inner > p {
+  font-size: 4vw;
+  line-height: 1.5;
+  padding: 10px 0;
+}
+
+.service .inner .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  /* height: 50vh; */
+}
+
+.service .inner .content > div {
+  width: 40%;
+  height: 40vh;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-right: 20px;
+  padding: 40px 20px;
+}
+
+.service .inner .content > div span {
+  font-size: 3vw;
+  line-height: 1;
+}
+
+.service .inner .content .content_1 {
+  position: relative;
+  background-color: #f5f0bb;
+  text-align: left;
+  font: 4vw/1 'Poor Story';
+}
+
+.service .inner .content .content_2 {
+  background-color: #c4dfaa;
+  text-align: left;
+  font: 4vw/1 'Poor Story';
+}
+
+.service .inner .content .content_3 {
+  background-color: #90c8ac;
+  text-align: left;
+  font: 4vw/1 'Poor Story';
+}
+
+.service .inner .content .content_4 {
+  background-color: #73a9ad;
+  text-align: left;
+  font: 4vw/1 'Poor Story';
+}
+
+.service .inner .content > div > p {
+  font-size: 2vw;
+  margin-top: 10px;
+  line-height: 1.3;
+}
+
+.service .inner .content #notice {
+  font-size: 15px;
+  color: white;
+}
+
+.sample {
+  position: absolute;
+  top: 200vh;
+  width: 100%;
+  text-align: center;
+}
+
+.sample .inner {
+  padding: 3vh 3vw;
+}
+
+.sample .inner .title {
+  font-size: 4vw;
+  line-height: 1.5;
+  padding: 10px 0 30px 0;
+}
+
+.sample .inner .title > span {
+  color: red;
+  font-weight: bold;
+}
+
+.sample .inner .sample_btn {
+  background-color: #a6d1e6;
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.sample .inner .sample_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+  box-sizing: border-box;
+}
+
+.sample .inner .sample_container .item {
+  position: relative;
+  width: 20%;
+  height: 33vh;
+  margin: 10px;
+  border-radius: 7px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.sample .inner .sample_container .item .item_img {
+  width: 100%;
+  height: 15vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* .sample .inner .sample_container .item1 {
+  background-image: url(../image/pexels-antoni-shkraba-6219073.jpg);
+}
+
+.sample .inner .sample_container .item2 {
+  background-image: url(../image/pexels-antoni-shkraba-6219095.jpg);
+}
+
+.sample .inner .sample_container .item3 {
+  background-image: url(../image/pexels-antoni-shkraba-6219105.jpg);
+}
+.sample .inner .sample_container .item4 {
+  background-image: url(../image/pexels-karolina-grabowska-4887163.jpg);
+}
+.sample .inner .sample_container .item5 {
+  background-image: url(../image/pexels-luis-quintero-2263816.jpg);
+}
+.sample .inner .sample_container .item6 {
+  background-image: url(../image/pexels-monstera-7411985.jpg);
+}
+.sample .inner .sample_container .item7 {
+  background-image: url(../image/pexels-ryutaro-tsukata-6249454.jpg);
+}
+.sample .inner .sample_container .item8 {
+  background-image: url(../image/pexels-stephanie-ho-994172.jpg);
+} */
+
+.sample .inner .sample_container .item .item_status {
+  position: absolute;
+  top: 13.2vh;
+  right: 6px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  background-color: rgb(127, 234, 255);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.sample .inner .sample_container .item .item_text {
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.sample .inner .sample_container .item .item_text h4 {
+  padding-bottom: 10px;
+  color: rgb(43, 41, 41);
+}
+
+.sample .inner .sample_container .item .item_text p {
+  padding-bottom: 10px;
+  font-size: 12px;
+  color: rgb(99, 98, 98);
+}
+
+.sample .inner .sample_container .item .item_text p i {
+  padding-right: 5px;
+}
+
+.sample .inner .sample_container .item .badge {
+  position: absolute;
+  bottom: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+}
+
+.sample .inner .sample_container .item .badge_style {
+  left: 20px;
+  background-color: #90c8ac;
+  color: #3b5045;
+}
+
+.sample .inner .sample_container .item .badge_age {
+  left: 65px;
+  background-color: rgb(176, 176, 176);
+  color: rgb(57, 57, 57);
+}
+
+.product {
+  position: absolute;
+  top: 310vh;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+}
+
+.product .inner {
+  position: relative;
+  padding: 3vh 3vw;
+}
+
+.product .inner > p {
+  font-size: 4vw;
+  line-height: 1.5;
+  padding: 20px 0;
+}
+
+.product .inner .product_btn {
+  background-color: #a6d1e6;
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.product .inner img {
+  margin-top: 20vh;
+}
+
+.product .inner .people {
+  position: absolute;
+  width: 17%;
+  top: 20vh;
+  right: 18vw;
+}
+
+.product .inner .event {
+  position: absolute;
+  top: 25vh;
+  right: 35vw;
+  width: 30%;
+}
+
+.product .inner .flog {
+  position: absolute;
+  width: 17%;
+  top: 30vh;
+  left: 15vw;
+}
+
+.product .inner .plus_btn {
+  display: none;
+}
+
+.papper {
+  position: absolute;
+  top: 400vh;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+}
+
+.papper .inner {
+  position: relative;
+  padding: 3vh 3vw;
+}
+
+.papper .inner > p {
+  font-size: 4vw;
+  line-height: 1.5;
+  padding: 20px 0;
+}
+
+.papper .inner .papper_btn {
+  background-color: #a6d1e6;
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+.papper .inner .swiper {
+  margin-top: 7vh;
+  position: relative;
+}
+
+.papper .inner .swiper img {
+  width: 300px;
+  cursor: pointer;
+}
+
+.papper .inner .swiper .swiper-wrapper .swiper-slide {
+  opacity: 0.5;
+  transition: 0.2s;
+}
+
+.papper .inner .swiper .swiper-wrapper .swiper-slide-active {
+  opacity: 1;
+}
+
+.papper .swiper .swiper-pagination {
+  position: absolute;
+  bottom: -5px;
+}
+
+/* MOBILE */
+@media (max-width: 840px) {
+  header #gnb {
+    display: none;
+  }
+
+  header .user {
+    display: none;
+  }
+
+  #snb .search_icon {
+    display: block;
+    top: 4vh;
+    right: 60px;
+  }
+
+  header #snb {
+    display: block;
+  }
+
+  header #snb .btn_menu {
+    color: black;
+    font-size: 20px;
+    display: block;
+  }
+
+  header #snb .sub_menu {
+    position: absolute;
+    top: 9vh;
+    right: 0;
+    padding: 10px;
+    background-color: white;
+    opacity: 1;
+    transition: 0.4s;
+    width: 100%;
+  }
+
+  header #snb .sub_menu li {
+    padding: 20px;
+    font: 16px/1 'Poor Story';
+  }
+
+  header #snb .sub_menu li a {
+    color: black;
+  }
+
+  header #snb .sub_menu li i {
+    margin-right: 8px;
+  }
+
+  header #snb .sub_menu.hide {
+    opacity: 0;
+  }
+
+  header .btn_menu {
+    display: block;
+  }
+
+  .search .search_input {
+    display: none;
+  }
+
+  figure {
+    padding: 0;
+  }
+
+  figure .text {
+    left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  figure .text p {
+    font: normal 13vw/1.5 'Poor Story';
+  }
+
+  .service .inner > p {
+    font-size: 8vw;
+    line-height: 1.5;
+    padding: 10px 0;
+  }
+
+  .service .inner .content > div span {
+    font-weight: bold;
+    font: 7vw/1 'Poor Story';
+  }
+
+  .service .inner .content > div p {
+    font-weight: bold;
+    font: 4vw/1.2 'Poor Story';
+  }
+
+  .service .inner .content > div {
+    width: 100%;
+    height: 21vh;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin: 0 0 10px 0;
+    padding: 30px 20px;
+  }
+
+  .sample {
+    top: 185vh;
+  }
+
+  .sample .inner .title {
+    font-size: 8vw;
+    line-height: 1.5;
+  }
+
+  .sample .inner .sample_container .item {
+    width: 40%;
+    height: 30vh;
+  }
+
+  /* PRODUCT */
+
+  .product {
+    top: 340vh;
+  }
+
+  .product .inner > p {
+    font-size: 8vw;
+    line-height: 1.5;
+    padding: 20px 0;
+  }
+
+  .product .inner img {
+    margin-top: 10px;
+  }
+
+  .product .inner .event {
+    position: absolute;
+    top: 28vh;
+    left: 10vw;
+    width: 80vw;
+  }
+
+  .product .inner > .people,
+  .flog {
+    display: none;
+  }
+
+  .product .inner .plus_btn {
+    display: block;
+    position: absolute;
+    top: 60vh;
+    left: 170px;
+    color: black;
+  }
+
+  .papper .inner > p {
+    font-size: 8vw;
+    line-height: 1.5;
+    padding: 20px 0;
+  }
+
+  .papper .inner .swiper {
+    margin-top: 5vh;
+  }
+
+  .papper .inner .swiper img {
+    width: 100px;
+  }
+}

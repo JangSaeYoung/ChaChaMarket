@@ -6,15 +6,18 @@ const express = require('express');
 const app = express();
 const PORT = 4000;
 
-const postsRouter = express.Router();
+// const postsRouter = express.Router();
 // const userRouter = express.Router();
 const userRouter = require('./routes/users');
+const postsRouter = require('./routes/posts');
+const homeRouter = require('./routes/home');
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.use('/users', userRouter);
 app.use('/posts', postsRouter);
+app.use('/home', homeRouter);
 
 // app.use(express.static('views'));
 app.use(express.static('public'));

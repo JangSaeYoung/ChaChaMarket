@@ -8,10 +8,16 @@
   <title>Document</title>
 </head>
 <link rel="stylesheet" href="./css/style.css">
-<script src="./test.js"></script>
+<script src="./javascript/test.js"></script>
 
 <body>
+
   <p>다발이네 헬스장</p>
+  <div>
+    <!-- <img src="./images/dabal.png" alt="dabal image"> -->
+    <img src="./images/<%= imgName%>" alt="dabal image">
+
+  </div>
   <h1>회원목록</h1>
   <h2>총 회원 수 <%= userCounts%></h2>
   <div>
@@ -24,6 +30,7 @@
   <ul>
     <% if(userCounts > 0) {%> <% for(let i= 0; i < userCounts; i++){ %>
     <li>
+      <p>회원사진: <img src="<%= USER[i].image%>"> </p>
       <p>ID:<%= USER[i].id%></p>
       <p>NAME: <%= USER[i].name%></p>
       <p>E-Mail: <%= USER[i].email%></p>

@@ -28,7 +28,10 @@ ul {
 
 li {
   border-bottom: 3px solid black;
+  display: flex;
+  justify-content: space-between;
 }
+
 
 div {
   display: flex;
@@ -49,4 +52,8 @@ input {
   margin: 2%;
   font-size: 3rem;
   padding-left: 2%;
+}
+
+img {
+  width: 20%;a
 }

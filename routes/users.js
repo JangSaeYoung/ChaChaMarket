@@ -47,7 +47,7 @@ const USER = [
 
 router.get('/', (req, res) => {
   const userLen = USER.length;
-  res.render('index', { USER, userCounts: userLen, imgName: 'dabal.png' });
+  res.render('users', { USER, userCounts: userLen, imgName: 'dabal.png' });
 });
 
 router.get('/:id', (req, res) => {

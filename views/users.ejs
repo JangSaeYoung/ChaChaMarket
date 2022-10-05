@@ -8,12 +8,12 @@
   <title>Document</title>
 </head>
 <link rel="stylesheet" href="./css/style.css">
-<!-- <script src="./javascript/test.js"></script> -->
+<script src="./javascript/test.js"></script>
 
 <body>
   <header>
     <h1>
-      <a href="http://localhost:4000/home">
+      <a href="/home">
         <img class="logo" src="./images/logo.png" alt="차차마켓 로고">
         차차마켓
       </a>
@@ -23,8 +23,6 @@
       <li><a href="/users">제작상품</a></li>
       <li><a href="/posts">활동지</a></li>
       <li><a href="/board">공지사항</a></li>
-
-
     </ul>
     <div class="search">
       <input class="search_input" type="text" placeholder="자료를 검색해보세요" />
@@ -38,7 +36,7 @@
       <a href="#" class="btn_menu"><i class="fa-solid fa-bars"></i></a>
       <ul class="sub_menu hide">
         <li><a href="#">중고거래</a></li>
-        <li><a href="/users">제작상품</a></li>
+        <li><a href="http://localhost:4000/users">제작상품</a></li>
         <li><a href="#">활동지</a></li>
         <li class="sns_icon">
           <a href=""><i class="fa-brands fa-github"></i></a>
@@ -58,26 +56,41 @@
       <input class="name" type="text" placeholder="이름을 입력하세요">
       <button onclick="addMember()">작가 검색</button>
     </div>
+    <!-- <div class="artistList"> -->
     <div class="artistList">
-      <div class="artistList">
-        <% if(userCounts > 0) {%> <% for(let i= 0; i < userCounts; i++){ %>
-        <div class="artist">
-          <div class="inner">
-            <img src="./images/<%= imgName%>" alt="dabal image">
-            <div class="artistWork">
-              <p>교재명: <%= USER[i].name%></p>
-              <p>작가명: <%= USER[i].id%></p>
-              <p>이메일: <%= USER[i].email%></p>
-            </div>
-            <p class="plusBtn">더보기</p>
+      <% if(userCounts > 0) {%> <% for(let i= 0; i < userCounts; i++){ %>
+      <div class="artist">
+        <div class="inner">
+          <img src="./images/<%= imgName%>" alt="dabal image">
+          <div class="artistWork">
+            <p>교재명: <%= USER[i].name%></p>
+            <p>작가명: <%= USER[i].id%></p>
+            <p>이메일: <%= USER[i].email%></p>
+            <button onclick="deleteUser('<%= USER[i].id%>');">삭제</button>
           </div>
+          <p class="plusBtn">더보기</p>
         </div>
-        <%}%>
-        <%}%>
-        <!-- </div> -->
       </div>
-      <p class="plusBtn">작품 더보기</p>
+      <%}%> 
+        <%}%>
+      <!-- </div> -->
+    </div>
+    <p class="plusBtn">작품 더보기</p>
   </section>
 </body>
+<script>
+  function deleteUser(id) {
+    console.log(id);
+    fetch(`/users/${id}`, {
+      method: 'delete',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    }).then((res) => {
+      console.log('res=>', res);
+      location.reload();
+    })
+  }
+</script>
 
 </html>

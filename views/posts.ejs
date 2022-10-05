@@ -20,22 +20,24 @@
     </h1>
     <ul id="gnb">
       <li><a href="">중고거래</a></li>
-      <li><a href="http://localhost:4000/users">제작상품</a></li>
-      <li><a href="http://localhost:4000/posts">활동지</a></li>
+      <li><a href="/users">제작상품</a></li>
+      <li><a href="/posts">활동지</a></li>
+      <li><a href="/board">공지사항</a></li>
+
     </ul>
     <div class="search">
       <input class="search_input" type="text" placeholder="자료를 검색해보세요" />
     </div>
     <ul class="user">
-      <li><a href="#">회원가입</a></li>
-      <li><a href="#">로그인</a></li>
+      <li><a href="/signin">회원가입</a></li>
+      <li><a href="/login">로그인</a></li>
     </ul>
     <div id="snb">
       <a href="#" class="search_icon"><i class="fa-solid fa-magnifying-glass"></i></a>
       <a href="#" class="btn_menu"><i class="fa-solid fa-bars"></i></a>
       <ul class="sub_menu hide">
         <li><a href="#">중고거래</a></li>
-        <li><a href="http://localhost:4000/users">제작상품</a></li>
+        <li><a href="/users">제작상품</a></li>
         <li><a href="#">활동지</a></li>
         <li class="sns_icon">
           <a href=""><i class="fa-brands fa-github"></i></a>
@@ -59,15 +61,50 @@
           <li>
             <p class="listTitle"><%= POSTS[i].title%> </p>
             <p class="listContent"><%= POSTS[i].content%></p>
-            <p>다운로드📁</p>
-            <p>좋아요👍</p>
+            <p class="download">다운로드 📁</p>
+            <!-- <p>좋아요 👍</p> -->
+            <button onclick="deletePost('<%= POSTS[i].title %>');">삭제</button>
           </li>
           <%}%> <%} else{ %>
           <li>회원 정보가 없습니다.</li>
           <%}%>
         </ul>
       </div>
+    </section>
+    <section class="addSection">
+      <div class="addPost">
+      <h2>활동지 등록</h2>
+      <form action="/posts" method="POST">
+        <div>
+          <label>이름</label>
+          <input type="text" name="title" placeholder="활동지 이름을 작성해주세요">
+        </div>
+        <div>
+          <label>소개</label>
+          <input type="text" name="content" placeholder="활동지 소개를 작성해주세요">
+        </div>
+        <div>
+          <label>파일</label>
+          <input type="file" name="file" >
+        </div>
+        <button type="submit">올리기</button>
+      </form>
+    </div>
     </div>
   </section>
   </body>
+  <script>
+    function deletePost(title){
+      console.log(title);
+      fetch(`http://localhost:4000/posts/${title}`,{
+        method: 'delete',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      }).then((res) => {
+        console.log('res=>',res);
+        location.reload();
+      })
+    }
+  </script>
 </html>

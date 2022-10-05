@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 3vh 3vw;
+  align-items: center;
+  z-index: 2;
+  background-color: white;
+}
+
+header .btn_menu {
+  display: none;
+}
+
+/* LOGO */
+header h1 a {
+  position: relative;
+  font: bold 30px/1 'Poor Story';
+  color: green;
+}
+
+header h1 a .logo {
+  width: 30px;
+}
+
+/* GNB */
+header #gnb {
+  position: absolute;
+  display: flex;
+  left: 180px;
+}
+
+header #snb {
+  display: none;
+}
+
+header #gnb li {
+  margin: 0px 15px;
+}
+
+header #gnb a {
+  font: 16px/1 'Poor Story';
+  color: black;
+  letter-spacing: 1px;
+}
+
+header #id .sub_menu {
+  opacity: 0;
+}
+
+/* INPUT_SEARCH */
+
+.search {
+  position: absolute;
+  right: 240px;
+}
+
+.search .search_input {
+  width: 200px;
+  height: 40px;
+  border: none;
+  background-color: #f2f3f6;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 16px;
+  font-family: 'Poor Story';
+  display: block;
+}
+
+/* USER */
+.user {
+  display: flex;
+}
+
+.user li {
+  margin: 0 5px;
+}
+
+.user li a {
+  padding: 10px 20px;
+  border-radius: 7px;
+  box-sizing: border-box;
+  color: black;
+  font: 16px/1 'Poor Story';
+}
+
+.user li:nth-of-type(1) a {
+  border: 1px solid green;
+}
+
+.user li:nth-of-type(2) a {
+  background-color: green;
+  color: white;
+}
+
+/* SNS */
+.sns {
+  display: flex;
+}
+
+.sns li {
+  margin: 0 10px;
+}
+
+.sns li a {
+  color: black;
+  font-size: 16px;
+}
+
+#snb .search_icon {
+  position: absolute;
+  top: 0;
+  display: none;
+  font-size: 18px;
+  color: black;
+}
+
+section {
+  background-color: #57a9fa;
+  padding-top: 30%;
+  padding-bottom: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.memberList {
+  background-color: #575cfa;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 부트스트랩 */
+.boot {
+  padding-top: 150px;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공지사항</title>
+  <link rel="stylesheet" href="/css/boardmodify.css">
+  <script src="https://kit.fontawesome.com/8f941869ba.js" crossorigin="anonymous"></script>
+  <script src="./javascript/pagination.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <h1>
+      <a href="/home">
+        <img class="logo" src="/images/logo.png" alt="차차마켓 로고">
+        차차마켓
+      </a>
+    </h1>
+    <ul id="gnb">
+      <li><a href="">중고거래</a></li>
+      <li><a href="/users">제작상품</a></li>
+      <li><a href="/posts">활동지</a></li>
+      <li><a href="/board">공지사항</a></li>
+
+    </ul>
+    <div class="search">
+      <input class="search_input" type="text" placeholder="자료를 검색해보세요" />
+    </div>
+    <ul class="user">
+      <li><a href="/signin">회원가입</a></li>
+      <li><a href="/login">로그인</a></li>
+    </ul>
+    <div id="snb">
+      <a href="#" class="search_icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" class="btn_menu"><i class="fa-solid fa-bars"></i></a>
+      <ul class="sub_menu hide">
+        <li><a href="#">중고거래</a></li>
+        <li><a href="http://localhost:4000/users">제작상품</a></li>
+        <li><a href="#">활동지</a></li>
+        <li class="sns_icon">
+          <a href=""><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/jangvaScript"><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-facebook-square"></i></a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <section>
+    <div class="inner">
+      <!-- inner -->
+      <div class="title">
+        <h1>수정</h1>
+      </div>
+      <div class="noticList">
+        <form action="/board/modify/title/<%=selectedArticle.title%>" method="POST">
+          <div class="titleBox">
+            <p>제목</p>
+            <input type="text" name="title" value="<%= selectedArticle.title %>" required />
+          </div>
+          <div class="contentBox">
+            <p>내용</p>
+            <textarea name="content" id="content" class="textareaSize" cols="30" rows="10" required><%= selectedArticle.content %></textarea>
+          </div>
+
+
+          <button type="submit" class="button-65">글 수정하기</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

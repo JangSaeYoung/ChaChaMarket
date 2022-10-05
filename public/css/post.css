@@ -137,6 +137,8 @@ section {
   padding-top: 10%;
   padding-bottom: 10%;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 section > .inner {
@@ -160,6 +162,7 @@ h1 {
   display: flex;
   justify-content: center;
   margin: 20px;
+  margin-bottom: 30px;
 }
 
 .lists > ul {
@@ -171,12 +174,13 @@ h1 {
 .lists > ul > li {
   display: flex;
   flex-direction: row;
+  align-items: center;
   border-bottom: 1px solid rgb(144, 140, 140);
   height: 50px;
   line-height: 50px;
   padding-left: 10px;
   text-align: center;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .lists > ul > li:nth-last-child(1) {
@@ -192,5 +196,98 @@ h1 {
 }
 
 .lists > ul > li > .listContent {
-  width: 370px;
+  width: 350px;
 }
+
+.lists > ul > li > .download {
+  width: 100px;
+}
+
+.lists > ul > li > button {
+  display: inline;
+  width: 50px;
+  height: 25px;
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  /* flex: 0 0 auto; */
+  font-family: 'Inter var', ui-sans-serif, system-ui, -apple-system, system-ui,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 0.9rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.lists > ul > li > button:hover {
+  background-color: #374151;
+}
+
+.lists > ul > li > button:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 0.2rem;
+  }
+}
+
+.addSection {
+  background-color: #fa578d;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.inner > .addPost {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.addPost > h2 {
+  text-align: center;
+}
+
+.addPost > form {
+  text-align: center;
+  margin: 20px;
+}
+
+form > div {
+  margin-bottom: 10px;
+  width: 700px;
+  font-size: 20px;
+}
+
+form > div > input {
+  width: 500px;
+  height: 50px;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+/* form > div > input{
+  width: 500px;
+  height: 50px;
+  font-size: 20px;
+  padding-left: 10px;
+} */

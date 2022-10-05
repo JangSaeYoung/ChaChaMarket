@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공지사항</title>
+  <link rel="stylesheet" href="./css/board.css">
+  <script src="https://kit.fontawesome.com/8f941869ba.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <header>
+    <h1>
+      <a href="/home">
+        <img class="logo" src="./images/logo.png" alt="차차마켓 로고">
+        차차마켓
+      </a>
+    </h1>
+    <ul id="gnb">
+      <li><a href="">중고거래</a></li>
+      <li><a href="/users">제작상품</a></li>
+      <li><a href="/posts">활동지</a></li>
+      <li><a href="/board">공지사항</a></li>
+
+    </ul>
+    <div class="search">
+      <input class="search_input" type="text" placeholder="자료를 검색해보세요" />
+    </div>
+    <ul class="user">
+      <li><a href="/signin">회원가입</a></li>
+      <li><a href="#">로그인</a></li>
+    </ul>
+    <div id="snb">
+      <a href="#" class="search_icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" class="btn_menu"><i class="fa-solid fa-bars"></i></a>
+      <ul class="sub_menu hide">
+        <li><a href="#">중고거래</a></li>
+        <li><a href="http://localhost:4000/users">제작상품</a></li>
+        <li><a href="#">활동지</a></li>
+        <li class="sns_icon">
+          <a href=""><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/jangvaScript"><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-facebook-square"></i></a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <section>
+    <div class="inner">
+      <!-- inner -->
+      <div class="title">
+        <h1>공지사항</h1>
+        <button class="button-65" role="button">
+          <a href="/board/write">
+            <i class="fa-solid fa-pen"></i>
+            작성하기
+          </a>
+        </button>
+        <button class="button-65" role="button">
+          <a href="/login/logout">
+            로그아웃
+          </a>
+        </button>
+      </div>
+      <div class="line"></div>
+      <p class="total">총 &nbsp;
+
+      <p class="totalNumber"><%= articleCounts %></p>
+
+      건의 게시물이 검색되었습니다.
+      </p>
+      <div class="noticList">
+        <form action="/board" method="POST">
+          <table class="list">
+            <tr>
+              <td>번호</td>
+              <td>제목</td>
+              <td>내용</td>
+              <td>날짜</td>
+              <td>작성자</td>
+              <td>파일</td>
+
+              <td></td>
+            </tr>
+            <tbody>
+              <% if (articleCounts> 0) { %>
+              <% for(let i=0; i < articleCounts; i++) { %>
+              <tr>
+                <td><%=articleCounts - i%></td>
+                <td>
+                  <a href="board/view/title/<%= ARTICLE[i].title%>">
+                    <%= ARTICLE[i].title %>
+                  </a>
+                </td>
+                <td><%= ARTICLE[i].content %></td>
+                <td class="writeDate"><%= ARTICLE[i].date %></td>
+                <td class="writeDate"><%= ARTICLE[i].userName ?ARTICLE[i].userName :ARTICLE[i].id  %></td>
+
+
+
+                <td>
+                  <% if (ARTICLE[i].img !=null) { %>
+                  <img src="uploads/<%= ARTICLE[i].img %>" width="200"> <% } %>
+                </td>
+
+
+
+                <td class="actionBtn">
+                  <% if (ARTICLE[i].id === userId) { %>
+                  <a href="board/modify/title/<%= ARTICLE[i].title %>"> <span><i class=" fa-solid fa-pen"></i></span></a>
+                  <a href="#" onclick="deleteArticle('<%= ARTICLE[i].title %>')">
+                    <span><i class=" fa-solid fa-trash-can"></i></span></a>
+                  <% } %>
+                </td>
+              </tr>
+              <%}%> 
+              <%} else{ %>
+              <p>공지사항이 없습니다.</p>
+              <%}%>
+            </tbody>
+          </table>
+        </form>
+      </div>
+      <div id="pagination">
+        <ol id="numbers">
+          <li><a href="">1</a></li> 
+          <li><a href="">2</a></li>          
+          <li><a href="">3</a></li>
+        </ol>
+      </div>
+      <!-- inner -->
+    </div>
+  </section>
+
+</body>
+<script>
+  function deleteArticle(title) {
+    fetch(`board/delete/title/${title}`, {
+      method: 'delete',
+      headers: {
+        'Content-type': 'application/json'
+      },
+    }).then((res) => {
+      alert('삭제하시겠습니까?');
+      location.href = '/board';
+    })
+  }
+
+  //작성 날짜 
+
+  
+
+</script>
+</html>

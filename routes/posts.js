@@ -43,7 +43,7 @@ router.get('/', (req, res) => {
 
 // 특정 title 조회 API
 router.get('/:title', (req, res) => {
-  const postData = POSTS.find((post) => post.title === req.params.title);
+  const postData = POSTS.find((user) => user.id === req.params.id);
 
   if (postData) {
     res.send(postData);
@@ -56,15 +56,37 @@ router.get('/:title', (req, res) => {
 
 // 새로운 글 추가 API
 router.post('/', (req, res) => {
-  if (req.query.title && req.query.content) {
-    const newPost = {
-      title: req.query.title,
-      content: req.query.content,
-    };
-    POSTS.push(newPost);
-    res.send('포스트 등록 완료!');
+  if (Object.keys(req.query).length >= 1) {
+    if (req.query.title && req.query.content) {
+      const newPost = {
+        id: req.query.id,
+        title: req.query.title,
+        content: req.query.content,
+      };
+      POSTS.push(newPost);
+      res.redirect('/posts');
+      // res.send('포스트 등록 완료!');
+    } else {
+      const err = new Error('TITLE NOT FOUND');
+      err.statusCode = 404;
+      throw err;
+    }
+  } else if (req.body) {
+    if (req.body.title && req.body.content) {
+      const newPost = {
+        title: req.body.title,
+        content: req.body.content,
+      };
+      POSTS.push(newPost);
+      res.redirect('/posts');
+      // res.send('포스트 등록 완료!');
+    } else {
+      const err = new Error('Unexpected Form data');
+      err.statusCode = 404;
+      throw err;
+    }
   } else {
-    const err = new Error('TITLE NOT FOUND');
+    const err = new Error('No data');
     err.statusCode = 404;
     throw err;
   }

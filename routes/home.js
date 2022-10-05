@@ -94,5 +94,19 @@ const TOYS = [
 router.get('/', (req, res) => {
   const toyLength = TOYS.length;
   const toyBackgroundImg = TOYS.image;
-  res.render('home', { TOYS, toyCounts: toyLength, imgName: toyBackgroundImg });
+  res.render('home', {
+    TOYS,
+    toyCounts: toyLength,
+    imgName: toyBackgroundImg,
+    popup: req.cookies.popup,
+  });
+});
+
+router.post('/cookie', (req, res) => {
+  res.cookie('popup', 'hide', {
+    // expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+    expires: new Date(Date.now() + 1000 * 60),
+    httpOnly: true,
+  });
+  res.send('쿠키생성 성공');
 });
